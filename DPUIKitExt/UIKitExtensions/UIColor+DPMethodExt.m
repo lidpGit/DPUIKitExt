@@ -48,8 +48,7 @@ UIColor * DPColorForHex(NSString *hexStr){
 
 - (UIColor *(^)(CGFloat))setAlpha{
     return ^(CGFloat value){
-        [self colorWithAlphaComponent:value];
-        return self;
+        return [self colorWithAlphaComponent:value];
     };
 }
 
