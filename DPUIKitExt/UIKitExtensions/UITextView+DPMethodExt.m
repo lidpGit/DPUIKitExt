@@ -169,6 +169,13 @@ UITextView * DPTextView(){
     self.placeholderLabel.hidden = self.text.length > 0;
 }
 
+- (UITextView *(^)(UIKeyboardType))setKeyboardType{
+    return ^(UIKeyboardType type){
+        self.keyboardType = type;
+        return self;
+    };
+}
+
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

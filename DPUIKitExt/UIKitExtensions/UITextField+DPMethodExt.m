@@ -119,4 +119,11 @@ UITextField * DPTextField(){
     };
 }
 
+- (UITextField *(^)(UIKeyboardType))setKeyboardType{
+    return ^(UIKeyboardType type){
+        self.keyboardType = type;
+        return self;
+    };
+}
+
 @end

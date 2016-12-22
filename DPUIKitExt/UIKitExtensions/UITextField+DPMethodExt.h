@@ -90,4 +90,9 @@ UITextField * DPTextField();
  */
 - (UITextField *(^)(UIReturnKeyType))setReturnKeyType;
 
+/**
+ 设置键盘样式
+ */
+- (UITextField *(^)(UIKeyboardType))setKeyboardType;
+
 @end

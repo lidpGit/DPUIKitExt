@@ -107,4 +107,9 @@ UITextView * DPTextView();
  */
 - (UITextView *(^)(UIReturnKeyType))setReturnKeyType;
 
+/**
+ 设置键盘样式
+ */
+- (UITextView *(^)(UIKeyboardType))setKeyboardType;
+
 @end
