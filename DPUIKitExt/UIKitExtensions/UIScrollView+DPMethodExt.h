@@ -73,12 +73,12 @@ UIScrollView * DPScrollView();
 /**
  是否显示水平滚动条
  */
-- (UIScrollView *(^)(BOOL))showsHorizontalScrollIndicator;
+- (UIScrollView *(^)(BOOL))setShowsHorizontalScrollIndicator;
 
 /**
  是否显示垂直滚动条
  */
-- (UIScrollView *(^)(BOOL))showsVerticalScrollIndicator;
+- (UIScrollView *(^)(BOOL))setShowsVerticalScrollIndicator;
 
 /**
  滚动到指定frame，参数1为frame，参数2为是否需要动画

@@ -89,14 +89,14 @@ UIScrollView * DPScrollView(){
     };
 }
 
-- (UIScrollView *(^)(BOOL))showsVerticalScrollIndicator{
+- (UIScrollView *(^)(BOOL))setShowsVerticalScrollIndicator{
     return ^(BOOL isShow){
         self.showsVerticalScrollIndicator = isShow;
         return self;
     };
 }
 
-- (UIScrollView *(^)(BOOL))showsHorizontalScrollIndicator{
+- (UIScrollView *(^)(BOOL))setShowsHorizontalScrollIndicator{
     return ^(BOOL isShow){
         self.showsHorizontalScrollIndicator = isShow;
         return self;
