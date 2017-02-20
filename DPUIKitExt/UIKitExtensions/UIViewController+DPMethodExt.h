@@ -8,6 +8,18 @@
 
 @interface UIViewController (DPMethodExt)
 
+#pragma mark - ↓↓↓↓↓↓动态透明导航↓↓↓↓↓↓
+@property (strong, nonatomic) UIView *nav_topView;
+@property (assign, nonatomic) CGFloat navbarAlpha;
+@property (assign, nonatomic) CGFloat hiddenNavbarOffset;
+
+- (void)setTransparentNavWithScrollView:(UIScrollView *)scrollView hiddenNavbarOffset:(CGFloat)hiddenNavbarOffset;
+- (void)viewWillAppear_transparentNav;
+- (void)viewDidAppear_transparentNav;
+- (void)viewWillDisappear_transparentNav;
+- (void)removeTransparentNavObserver;
+#pragma mark - ↑↑↑↑↑↑动态透明导航↑↑↑↑↑↑
+
 /**
  获取UINavigationBar
  */
@@ -32,5 +44,6 @@
 - (void (^)(UIViewController *, BOOL, void (^)()))presentViewController;
 
 - (void (^)(BOOL, void (^)()))dismissViewController;
+
 
 @end
