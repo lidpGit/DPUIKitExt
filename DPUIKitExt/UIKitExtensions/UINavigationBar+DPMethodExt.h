@@ -16,6 +16,11 @@
 - (UINavigationBar *(^)(BOOL))setTranslucent;
 
 /**
+ 是否隐藏EffectView
+ */
+- (UINavigationBar *(^)(BOOL))setHiddenEffectView;
+
+/**
  是否隐藏分割线
  */
 - (UINavigationBar *(^)(BOOL))setHiddenShadowImage;

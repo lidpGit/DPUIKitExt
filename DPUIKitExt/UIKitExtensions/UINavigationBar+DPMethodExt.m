@@ -9,6 +9,7 @@
 
 const void *key_nav_bg_color = "dp_nav_bg_color";
 const void *key_nav_hidden_line = "dp_nav_hidden_line";
+const void *key_nav_hidden_effectView = "dp_nav_hidden_effectView";
 
 @implementation UINavigationBar (DPMethodExt)
 
@@ -24,6 +25,14 @@ const void *key_nav_hidden_line = "dp_nav_hidden_line";
 - (UINavigationBar *(^)(BOOL))setTranslucent{
     return ^(BOOL isTranslucent){
         self.translucent = isTranslucent;
+        return self;
+    };
+}
+
+- (UINavigationBar *(^)(BOOL))setHiddenEffectView{
+    return ^(BOOL isHidden){
+        objc_setAssociatedObject(self, key_nav_hidden_effectView, @(isHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setNeedsLayout];
         return self;
     };
 }
@@ -107,11 +116,15 @@ const void *key_nav_hidden_line = "dp_nav_hidden_line";
                 shadowSuperview.backgroundColor = bgColor;
             }
             
-            BOOL isHidden = [objc_getAssociatedObject(self, key_nav_hidden_line) boolValue];
+            BOOL isHiddenLine = [objc_getAssociatedObject(self, key_nav_hidden_line) boolValue];
+            BOOL isHiddenEffectView = [objc_getAssociatedObject(self, key_nav_hidden_effectView) boolValue];
             for (UIImageView *subview in [obj subviews]) {
+                if ([subview isKindOfClass:[UIVisualEffectView class]]) {
+                    subview.hidden = isHiddenEffectView;
+                }
                 if ([subview isMemberOfClass:[UIImageView class]] && subview.frame.size.height == 0.5) {
                     subview.image = self.shadowImage;
-                    subview.hidden = isHidden;
+                    subview.hidden = isHiddenLine;
                 }
             }
         }
