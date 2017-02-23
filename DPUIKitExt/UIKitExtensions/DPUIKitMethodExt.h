@@ -26,3 +26,4 @@
 #import "UITabBar+DPMethodExt.h"
 #import "UIViewController+DPMethodExt.h"
 #import "UITabBarController+DPMethodExt.h"
+#import "UISearchBar+DPMethodExt.h"

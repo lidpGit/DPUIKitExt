@@ -43,6 +43,7 @@
 		6A18C5971E0A7C7400BF3323 /* LabelExampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A18C56F1E0A7C7400BF3323 /* LabelExampleController.m */; };
 		6A18C5981E0A7C7400BF3323 /* TableViewExampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A18C5711E0A7C7400BF3323 /* TableViewExampleController.m */; };
 		6A18C5991E0A7C7400BF3323 /* TextViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A18C5731E0A7C7400BF3323 /* TextViewExampleViewController.m */; };
+		6A43494F1E5E7F2C0035CCC8 /* UISearchBar+DPMethodExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43494E1E5E7F2C0035CCC8 /* UISearchBar+DPMethodExt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,8 @@
 		6A18C5721E0A7C7400BF3323 /* TextViewExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewExampleViewController.h; sourceTree = "<group>"; };
 		6A18C5731E0A7C7400BF3323 /* TextViewExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewExampleViewController.m; sourceTree = "<group>"; };
 		6A18C5CB1E0A983A00BF3323 /* Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.h; sourceTree = "<group>"; };
+		6A43494D1E5E7F2C0035CCC8 /* UISearchBar+DPMethodExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+DPMethodExt.h"; sourceTree = "<group>"; };
+		6A43494E1E5E7F2C0035CCC8 /* UISearchBar+DPMethodExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+DPMethodExt.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 				6A18C5661E0A7C7400BF3323 /* UIViewController+DPMethodExt.m */,
 				6A18C5671E0A7C7400BF3323 /* UIWebView+DPMethodExt.h */,
 				6A18C5681E0A7C7400BF3323 /* UIWebView+DPMethodExt.m */,
+				6A43494D1E5E7F2C0035CCC8 /* UISearchBar+DPMethodExt.h */,
+				6A43494E1E5E7F2C0035CCC8 /* UISearchBar+DPMethodExt.m */,
 			);
 			path = UIKitExtensions;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				6A18C4FE1E0A7C4100BF3323 /* main.m in Sources */,
 				6A18C5901E0A7C7400BF3323 /* UITextField+DPMethodExt.m in Sources */,
 				6A18C5801E0A7C7400BF3323 /* UICollectionView+DPMethodExt.m in Sources */,
+				6A43494F1E5E7F2C0035CCC8 /* UISearchBar+DPMethodExt.m in Sources */,
 				6A18C5981E0A7C7400BF3323 /* TableViewExampleController.m in Sources */,
 				6A18C5921E0A7C7400BF3323 /* UIView+DPMethodExt.m in Sources */,
 				6A18C58D1E0A7C7400BF3323 /* UITabBar+DPMethodExt.m in Sources */,
