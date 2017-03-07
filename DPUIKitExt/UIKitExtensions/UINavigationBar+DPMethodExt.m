@@ -119,9 +119,20 @@ const void *key_nav_hidden_effectView = "dp_nav_hidden_effectView";
             BOOL isHiddenLine = [objc_getAssociatedObject(self, key_nav_hidden_line) boolValue];
             BOOL isHiddenEffectView = [objc_getAssociatedObject(self, key_nav_hidden_effectView) boolValue];
             for (UIImageView *subview in [obj subviews]) {
+                //iOS 10以下隐藏透明层
+                if ([subview isKindOfClass:NSClassFromString(@"_UIBackdropView")]) {
+                    for (UIView *effectView in subview.subviews) {
+                        if ([effectView isKindOfClass:NSClassFromString(@"_UIBackdropEffectView")]) {
+                            effectView.hidden = isHiddenEffectView;
+                        }
+                    }
+                }
+                
+                //iOS 10以上隐藏透明层
                 if ([subview isKindOfClass:[UIVisualEffectView class]]) {
                     subview.hidden = isHiddenEffectView;
                 }
+                
                 if ([subview isMemberOfClass:[UIImageView class]] && subview.frame.size.height == 0.5) {
                     subview.image = self.shadowImage;
                     subview.hidden = isHiddenLine;
