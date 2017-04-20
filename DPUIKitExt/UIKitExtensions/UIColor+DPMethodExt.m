@@ -2,18 +2,18 @@
 //  UIColor+DPMethodExt.m
 //  UIKitExtensions
 //
-//  Created by lidp 
+//  Created by lidp
 
 #import "UIColor+DPMethodExt.h"
 
 @implementation UIColor (DPMethodExt)
 
 UIColor * RGB(CGFloat r, CGFloat g, CGFloat b){
-    return [UIColor colorWithRed:(b / 255.0f) green:(g / 255.0f) blue:(r / 255.0f) alpha:1];
+    return [UIColor colorWithRed:(r / 255.0f) green:(g / 255.0f) blue:(b / 255.0f) alpha:1];
 }
 
 UIColor * RGBA(CGFloat r, CGFloat g, CGFloat b, CGFloat a){
-    return [UIColor colorWithRed:(b / 255.0f) green:(g / 255.0f) blue:(r / 255.0f) alpha:a];
+    return [UIColor colorWithRed:(r / 255.0f) green:(g / 255.0f) blue:(b / 255.0f) alpha:a];
 }
 
 UIColor * DPColorForHex(NSString *hexStr){

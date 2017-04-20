@@ -2,7 +2,7 @@
 //  UIButton+DPMethodExt.m
 //  UIKitExtensions
 //
-//  Created by lidp 
+//  Created by lidp
 
 #import "UIButton+DPMethodExt.h"
 #import "UIView+DPMethodExt.h"
@@ -72,7 +72,8 @@ const void *key_image_dictionary = "imageDict"; /**< 存储按钮不同状态图
 }
 
 UIButton * DPButton(){
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom].setBackgroundColor([UIColor whiteColor], UIControlStateNormal);
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom].setBackgroundColor([UIColor clearColor], UIControlStateNormal);
+    btn.setTitleColor([UIColor whiteColor], UIControlStateNormal);
     btn.exclusiveTouch = YES;
     return btn;
 }
@@ -148,6 +149,30 @@ UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type){
     };
 }
 
+- (UIButton *(^)(NSString *))setNormalTitle{
+    return ^(NSString *title){
+        [self setTitle:title forState:UIControlStateNormal];
+        [self setNeedsLayout];
+        return self;
+    };
+}
+
+- (UIButton *(^)(NSString *))setHighlightTitle{
+    return ^(NSString *title){
+        [self setTitle:title forState:UIControlStateHighlighted];
+        [self setNeedsLayout];
+        return self;
+    };
+}
+
+- (UIButton *(^)(NSString *))setSelectedTitle{
+    return ^(NSString *title){
+        [self setTitle:title forState:UIControlStateSelected];
+        [self setNeedsLayout];
+        return self;
+    };
+}
+
 - (UIButton *(^)(NSAttributedString *, UIControlState))setAttributedTitle{
     return ^(NSAttributedString *attr, UIControlState state){
         [self setAttributedTitle:attr forState:state];
@@ -168,6 +193,27 @@ UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type){
     };
 }
 
+- (UIButton *(^)(UIColor *))setNormalTitleColor{
+    return ^(UIColor *color){
+        [self setTitleColor:color forState:UIControlStateNormal];
+        return self;
+    };
+}
+
+- (UIButton *(^)(UIColor *))setHighlightTitleColor{
+    return ^(UIColor *color){
+        [self setTitleColor:color forState:UIControlStateHighlighted];
+        return self;
+    };
+}
+
+- (UIButton *(^)(UIColor *))setSelectedTitleColor{
+    return ^(UIColor *color){
+        [self setTitleColor:color forState:UIControlStateSelected];
+        return self;
+    };
+}
+
 - (UIButton *(^)(UIFont *))setTitleFont{
     return ^(UIFont *font){
         self.titleLabel.font = font;
@@ -181,6 +227,28 @@ UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type){
             [super setBackgroundColor:backgroundColor];
         }
         if (backgroundColor) [[self colorDict] setValue:backgroundColor forKey:[self dictionaryKeyForState:state]];
+        return self;
+    };
+}
+
+- (UIButton *(^)(UIColor *))setNormalBackgroundColor{
+    return ^(UIColor *backgroundColor){
+        [super setBackgroundColor:backgroundColor];
+        if (backgroundColor) [[self colorDict] setValue:backgroundColor forKey:[self dictionaryKeyForState:UIControlStateNormal]];
+        return self;
+    };
+}
+
+- (UIButton *(^)(UIColor *))setHighlightBackgroundColor{
+    return ^(UIColor *backgroundColor){
+        if (backgroundColor) [[self colorDict] setValue:backgroundColor forKey:[self dictionaryKeyForState:UIControlStateHighlighted]];
+        return self;
+    };
+}
+
+- (UIButton *(^)(UIColor *))setSelectedBackgroundColor{
+    return ^(UIColor *backgroundColor){
+        if (backgroundColor) [[self colorDict] setValue:backgroundColor forKey:[self dictionaryKeyForState:UIControlStateSelected]];
         return self;
     };
 }
@@ -250,12 +318,12 @@ UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type){
 
 - (void)dp_layoutSubviews{
     [self dp_layoutSubviews];
-//    UIImage *image = self.imageView.image;
-//    if (image.size.height > self.viewHeight) {
-//        self.imageView.setViewSize(CGSizeMake(image.size.width / (image.size.height / self.viewHeight), self.viewHeight));
-//    } else if (image.size.width > self.viewWidth) {
-//        self.imageView.setViewSize(CGSizeMake(self.viewWidth, image.size.height / (image.size.width / self.viewWidth)));
-//    }
+    //    UIImage *image = self.imageView.image;
+    //    if (image.size.height > self.viewHeight) {
+    //        self.imageView.setViewSize(CGSizeMake(image.size.width / (image.size.height / self.viewHeight), self.viewHeight));
+    //    } else if (image.size.width > self.viewWidth) {
+    //        self.imageView.setViewSize(CGSizeMake(self.viewWidth, image.size.height / (image.size.width / self.viewWidth)));
+    //    }
     if (self.layoutType > 0) {
         switch (self.layoutType) {
             case DPBtnLayoutTypeLeftImageRightTitle: //图片在左，标题在右
@@ -286,16 +354,16 @@ UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type){
                 break;
         }
     }
-//    else{
-//        if (self.titleLabel.text.length > 0) {
-//            self.imageView.setViewX((self.viewWidth - self.titleLabel.viewWidth - self.imageView.viewWidth) / 2);
-//            self.titleLabel.setViewX(self.imageView.viewMaxX);
-//            self.imageView.setCenterY(self.viewHeight / 2);
-//            self.titleLabel.setCenterY(self.imageView.centerY);
-//        }else{
-//            self.imageView.setCenter(CGPointMake(self.viewWidth / 2, self.viewHeight / 2));
-//        }
-//    }
+    //    else{
+    //        if (self.titleLabel.text.length > 0) {
+    //            self.imageView.setViewX((self.viewWidth - self.titleLabel.viewWidth - self.imageView.viewWidth) / 2);
+    //            self.titleLabel.setViewX(self.imageView.viewMaxX);
+    //            self.imageView.setCenterY(self.viewHeight / 2);
+    //            self.titleLabel.setCenterY(self.imageView.centerY);
+    //        }else{
+    //            self.imageView.setCenter(CGPointMake(self.viewWidth / 2, self.viewHeight / 2));
+    //        }
+    //    }
 }
 
 @end

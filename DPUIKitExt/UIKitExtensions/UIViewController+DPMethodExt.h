@@ -35,11 +35,25 @@
  */
 - (UITabBarItem *(^)())dp_tabBarItem;
 
+/**
+ push到下一个页面
+ */
 - (void (^)(UIViewController *, BOOL))pushViewController;
 
+/**
+ pop回上一个页面
+ */
 - (void (^)(BOOL))popViewController;
 
+/**
+ pop回根视图
+ */
 - (void (^)(BOOL))popToRootViewController;
+
+/**
+ pop到指定的控制器
+ */
+- (void (^)(NSInteger, BOOL))popViewControllerWithIndex;
 
 - (void (^)(UIViewController *, BOOL, void (^)()))presentViewController;
 

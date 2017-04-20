@@ -21,17 +21,17 @@ typedef NS_ENUM(NSInteger, DPBtnLayoutType) {
 
 /**
  创建UIButton
-
+ 
  @return UIButton
  */
 UIButton * DPButton();
 
 /**
  创建UIButton
-
+ 
  @param imageTitleSpacing 图片与文字间距
  @param type              布局类型
-
+ 
  @return UIButton
  */
 UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type);
@@ -79,6 +79,21 @@ UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type);
 - (UIButton *(^)(NSString *, UIControlState))setTitle;
 
 /**
+ 设置普通状态按钮文字
+ */
+- (UIButton *(^)(NSString *))setNormalTitle;
+
+/**
+ 设置高亮状态按钮文字
+ */
+- (UIButton *(^)(NSString *))setHighlightTitle;
+
+/**
+ 设置选中状态按钮文字
+ */
+- (UIButton *(^)(NSString *))setSelectedTitle;
+
+/**
  设置标题富文本
  参数1为富文本
  参数2为按钮状态
@@ -98,6 +113,21 @@ UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type);
 - (UIButton *(^)(UIColor *, UIControlState))setTitleColor;
 
 /**
+ 设置普通状态按钮文字颜色
+ */
+- (UIButton *(^)(UIColor *))setNormalTitleColor;
+
+/**
+ 设置高亮状态按钮文字颜色
+ */
+- (UIButton *(^)(UIColor *))setHighlightTitleColor;
+
+/**
+ 设置选中状态按钮文字颜色
+ */
+- (UIButton *(^)(UIColor *))setSelectedTitleColor;
+
+/**
  设置按钮字体
  */
 - (UIButton *(^)(UIFont *))setTitleFont;
@@ -108,6 +138,21 @@ UIButton * DPLayoutButton(CGFloat imageTitleSpacing, DPBtnLayoutType type);
  参数2为按钮状态
  */
 - (UIButton *(^)(UIColor *, UIControlState))setBackgroundColor;
+
+/**
+ 设置普通状态按钮背景颜色
+ */
+- (UIButton *(^)(UIColor *))setNormalBackgroundColor;
+
+/**
+ 设置高亮状态按钮背景颜色
+ */
+- (UIButton *(^)(UIColor *))setHighlightBackgroundColor;
+
+/**
+ 设置选中状态按钮背景颜色
+ */
+- (UIButton *(^)(UIColor *))setSelectedBackgroundColor;
 
 /**
  设置tag

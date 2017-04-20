@@ -2,7 +2,7 @@
 //  UIViewController+DPMethodExt.m
 //  UIKitExtensions
 //
-//  Created by lidp 
+//  Created by lidp
 
 #import "UIViewController+DPMethodExt.h"
 #import <objc/runtime.h>
@@ -44,7 +44,7 @@ const void *key_scrollview = "vc_main_view";
     
     if ([scrollView isKindOfClass:[UIScrollView class]]) {
         objc_setAssociatedObject(self, key_scrollview, scrollView, OBJC_ASSOCIATION_ASSIGN);
-        scrollView.contentInset = UIEdgeInsetsMake(scrollView.contentInset.top + self.hiddenNavbarOffset, 0, 0, 0);
+        //        scrollView.contentInset = UIEdgeInsetsMake(scrollView.contentInset.top + self.hiddenNavbarOffset, 0, 0, 0);
         [scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     }
 }
@@ -105,7 +105,6 @@ const void *key_scrollview = "vc_main_view";
 
 - (void (^)(UIViewController *, BOOL))pushViewController{
     return ^(UIViewController *vc, BOOL animated){
-        vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:animated];
     };
 }
@@ -119,6 +118,14 @@ const void *key_scrollview = "vc_main_view";
 - (void (^)(BOOL))popToRootViewController{
     return ^(BOOL animated){
         [self.navigationController popToRootViewControllerAnimated:animated];
+    };
+}
+
+- (void (^)(NSInteger, BOOL))popViewControllerWithIndex{
+    return ^(NSInteger index, BOOL animated){
+        NSAssert(index < self.navigationController.viewControllers.count - 1, @"请传入正确的下标");
+        UIViewController *vc = self.navigationController.viewControllers[index];
+        [self.navigationController popToViewController:vc animated:animated];
     };
 }
 
